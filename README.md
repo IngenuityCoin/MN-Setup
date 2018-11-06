@@ -52,7 +52,7 @@ Also, if you want to check/start/stop **Ingenuity** , run one of the following c
 systemctl status Ingenuity #To check the service is running.
 systemctl start Ingenuity #To start Ingenuity service.
 systemctl stop Ingenuity #To stop Ingenuity service.
-systemctl is-enabled Ingenuity #To check whetether Ingenuity service is enabled on boot or not.
+systemctl is-enabled Ingenuity #To check whether Ingenuity service is enabled on boot or not.
 ```
 **Ubuntu 14.04**:  
 ```
