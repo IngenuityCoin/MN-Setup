@@ -7,7 +7,7 @@ Shell script to install a [Ingenuity Masternode](https://ingy.io) on a Linux ser
 wget -q https://raw.githubusercontent.com/IngenuityCoin/MN-Setup/master/ingyinstall.sh
 sudo chmod +x ingyinstall.sh
 ./ingyinstall.sh
-ENTER MASTERNODE GENKEY USING STEPS BELOW
+ENTER MASTERNODE GENKEY AND TX OUTPUTS USING STEPS BELOW
 ```
 ***
 
@@ -19,9 +19,10 @@ After the MN is up and running, you need to configure the desktop wallet accordi
 3. Send **1000** **INGY** to **MN1**.
 4. Wait for 15 confirmations.
 5. Go to **Tools -> "Debug console - Console"**
-6. Type the following command: **masternode genkey**
-7. Go to  ** Tools -> "Open Masternode Configuration File"
-8. Add the following entry:
+6. Type and copy the following command: **masternode genkey**
+7. In **"Debug console - Console"** type and copy following command: **masternode outputs**
+8. Go to  ** Tools -> "Open Masternode Configuration File"
+9. Add the following entry:
 ```
 Alias Address Privkey TxHash Output_index
 ```
