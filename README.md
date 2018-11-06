@@ -1,21 +1,63 @@
-# MN-Setup Guide (Follow below Steps):
+# Ingenuity
+Shell script to install a [Ingenuity Masternode](https://ingy.io) on a Linux server running Ubuntu 14.04, 16.04 or 18.04. Use it on your own risk.
 
-
+***
+## Installation:
+```
 wget -q https://raw.githubusercontent.com/IngenuityCoin/MN-Setup/master/ingyinstall.sh
-
 sudo chmod +x ingyinstall.sh
-
 ./ingyinstall.sh
+ENTER MASTERNODE GENKEY USING STEPS BELOW
+```
+***
 
-When prompted to Enter your Ingenuity Masternode GEN Key.
+## Desktop wallet setup
 
-Paster your Masternode GEN Key and press enter
+After the MN is up and running, you need to configure the desktop wallet accordingly. Here are the steps for Windows Wallet
+1. Open the Ingenuity Coin Desktop Wallet.
+2. Go to RECEIVE and create a New Address: **MN1**
+3. Send **1000** **INGY** to **MN1**.
+4. Wait for 15 confirmations.
+5. Go to **Tools -> "Debug console - Console"**
+6. Type the following command: **masternode genkey**
+7. Go to  ** Tools -> "Open Masternode Configuration File"
+8. Add the following entry:
+```
+Alias Address Privkey TxHash Output_index
+```
+* Alias: **MN1**
+* Address: **VPS_IP:PORT**
+* Privkey: **Masternode Private Key**
+* TxHash: **First value from Step 6**
+* Output index:  **Second value from Step 6**
+9. Save and close the file.
+10. Go to **Masternode Tab**. If you tab is not shown, please enable it from: **Settings - Options - Wallet - Show Masternodes Tab**
+11. Click **Update status** to see your node. If it is not shown, close the wallet and start it again. Make sure the wallet is unlocked.
+12. Open **Debug Console** and type:
+```
+startmasternode "alias" "0" "MN1"
+```
+***
 
-Wait till Node is fully Synced with blockchain.
-For check enter below command.
-
+## Usage:
+```
 ingenuity-cli getinfo
-
-When Node Fully Synced enter below command for check masternode status.
-
+ingenuity-cli mnsync status
 ingenuity-cli masternode status
+```
+Also, if you want to check/start/stop **Ingenuity** , run one of the following commands as **root**:
+
+**Ubuntu 16.04**:
+```
+systemctl status Ingenuity #To check the service is running.
+systemctl start Ingenuity #To start Ingenuity service.
+systemctl stop Ingenuity #To stop Ingenuity service.
+systemctl is-enabled Ingenuity #To check whetether Ingenuity service is enabled on boot or not.
+```
+**Ubuntu 14.04**:  
+```
+/etc/init.d/Ingenuity start #To start Ingenuity service
+/etc/init.d/Ingenuity stop #To stop Ingenuity service
+/etc/init.d/Ingenuity restart #To restart Ingenuity service
+```
+***
