@@ -5,8 +5,8 @@ Shell script to install a [Ingenuity Masternode](https://ingy.io) on a Linux ser
 ## Installation:
 ```
 wget -q https://raw.githubusercontent.com/IngenuityCoin/MN-Setup/master/ingyinstall.sh
-apt install dos2unix
-dos2unix ingyinstall.sh
+sudo apt update
+sudo apt install dos2unix
 ENTER MASTERNODE GENKEY AND TX OUTPUTS USING STEPS BELOW
 ```
 ***
