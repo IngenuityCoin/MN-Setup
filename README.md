@@ -50,10 +50,3 @@ systemctl start Ingenuity #To start Ingenuity service.
 systemctl stop Ingenuity #To stop Ingenuity service.
 systemctl is-enabled Ingenuity #To check whether Ingenuity service is enabled on boot or not.
 ```
-**Ubuntu 14.04**:  
-```
-/etc/init.d/Ingenuity start #To start Ingenuity service
-/etc/init.d/Ingenuity stop #To stop Ingenuity service
-/etc/init.d/Ingenuity restart #To restart Ingenuity service
-```
-***
