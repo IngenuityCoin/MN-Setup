@@ -1,5 +1,5 @@
 # Ingenuity
-Shell script to install a [Ingenuity Masternode](https://ingy.io) on a Linux server running Ubuntu 14.04, 16.04 or 18.04. Use it on your own risk.
+Shell script to install a [Ingenuity Masternode](https://ingy.io) on a Linux server running Ubuntu 16.04. Use it on your own risk.
 
 ***
 ## Installation:
