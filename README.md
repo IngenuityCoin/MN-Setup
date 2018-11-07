@@ -4,13 +4,7 @@ Shell script to install a [Ingenuity Masternode](https://ingy.io) on a Linux ser
 ***
 ## Installation:
 ```
-wget -q https://raw.githubusercontent.com/IngenuityCoin/MN-Setup/master/ingyinstall.sh
-sudo apt update
-sudo apt install dos2unix
-dos2unix ./ingyinstall.sh
-chmod +x ingyinstall.sh
-./ingyinstall.sh
-ENTER MASTERNODE GENKEY AND TX OUTPUTS USING STEPS BELOW
+wget -q https://raw.githubusercontent.com/IngenuityCoin/MN-Setup/master/ingyinstall.sh && chmod +x ingyinstall.sh && ./ingyinstall.sh
 ```
 ***
 
@@ -22,8 +16,8 @@ After the MN is up and running, you need to configure the desktop wallet accordi
 3. Send **1000** **INGY** to **MN1**.
 4. Wait for 15 confirmations.
 5. Go to **Tools -> "Debug console - Console"**
-6. Type and copy the following command: **masternode genkey**
-7. In **"Debug console - Console"** type and copy following command: **masternode outputs**
+6. In **"Debug console - Console"** type and copy following command: **masternode outputs**
+7. when the VPS script finishes executing, it will provide you with the MASTERNODE GENKEY that you will need for the next step.
 8. Go to  ** Tools -> "Open Masternode Configuration File"
 9. Add the following entry:
 ```
@@ -31,13 +25,14 @@ Alias Address Privkey TxHash Output_index
 ```
 * Alias: **MN1**
 * Address: **VPS_IP:PORT**
-* Privkey: **Masternode Private Key**
+* Privkey: **Masternode Genkey**
 * TxHash: **First value from Step 6**
 * Output index:  **Second value from Step 6**
 9. Save and close the file.
-10. Go to **Masternode Tab**. If you tab is not shown, please enable it from: **Settings - Options - Wallet - Show Masternodes Tab**
-11. Click **Update status** to see your node. If it is not shown, close the wallet and start it again. Make sure the wallet is unlocked.
-12. Click on masternode and click start alias.
+10. Close and reopen the QT wallet so it loads the new config you just wrote.
+11. Go to **Masternode Tab**. If you tab is not shown, please enable it from: **Settings - Options - Wallet - Show Masternodes Tab**
+12. Click **Update status** to see your node. If it is not shown, close the wallet and start it again. Make sure the wallet is unlocked.
+13. Click on masternode and click start alias.
 ***
 
 ## Usage:
