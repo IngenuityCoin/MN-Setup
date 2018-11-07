@@ -16,7 +16,7 @@ NODEIP=$(curl -s4 icanhazip.com)
 
 BLUE="\033[0;34m"
 YELLOW="\033[0;33m"
-CYAN="\033[0;36m" 
+CYAN="\033[0;36m"
 PURPLE="\033[0;35m"
 RED='\033[0;31m'
 GREEN="\033[0;32m"
@@ -31,17 +31,15 @@ purgeOldInstallation() {
     #remove old ufw port allow
     sudo ufw delete allow $COIN_PORT/tcp > /dev/null 2>&1
     #remove old files
-	rm -- "$0" > /dev/null 2>&1
-	rm /root/$CONFIGFOLDER/bootstrap.dat.old > /dev/null 2>&1
-	cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
+        rm -- "$0" > /dev/null 2>&1
+        rm /root/$CONFIGFOLDER/bootstrap.dat.old > /dev/null 2>&1
+        cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
     cd /usr/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
         sudo rm -rf ~/$CONFIGFOLDER > /dev/null 2>&1
     #remove binaries and $COIN_NAME utilities
     cd /usr/local/bin && sudo rm $COIN_CLI $COIN_DAEMON > /dev/null 2>&1 && cd
     echo -e "${GREEN}* Done${NONE}";
 }
-
-
 
 function download_node() {
   echo -e "${GREEN}Downloading and Installing VPS $COIN_NAME Daemon${NC}"
@@ -55,7 +53,6 @@ function download_node() {
   rm -rf $TMP_FOLDER >/dev/null 2>&1
   clear
 }
-
 function configure_systemd() {
   cat << EOF > /etc/systemd/system/$COIN_NAME.service
 [Unit]
@@ -159,7 +156,6 @@ addnode=104.248.33.190
 EOF
 }
 
-
 function enable_firewall() {
   echo -e "Installing and setting up firewall to allow ingress on port ${GREEN}$COIN_PORT${NC}"
   ufw allow $COIN_PORT/tcp comment "$COIN_NAME MN port" >/dev/null
@@ -168,7 +164,6 @@ function enable_firewall() {
   ufw default allow outgoing >/dev/null 2>&1
   echo "y" | ufw enable >/dev/null 2>&1
 }
-
 
 function get_ip() {
   declare -a NODE_IPS
@@ -193,7 +188,6 @@ function get_ip() {
   fi
 }
 
-
 function compile_error() {
 if [ "$?" -gt "0" ];
  then
@@ -201,7 +195,6 @@ if [ "$?" -gt "0" ];
   exit 1
 fi
 }
-
 
 function checks() {
 if [[ $(lsb_release -d) != *16.04* ]]; then
@@ -268,7 +261,7 @@ function important_information() {
  echo -e "${GREEN}ingenuity-cli masternode status${NC}"
  echo -e "${GREEN}ingenuity-cli getinfo${NC}"
  echo -e "${BLUE}================================================================================================================================${NC}"
- 
+
  }
 
 function setup_node() {
@@ -280,7 +273,6 @@ function setup_node() {
   important_information
   configure_systemd
 }
-
 
 ##### Main #####
 clear
