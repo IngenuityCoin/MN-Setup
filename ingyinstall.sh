@@ -6,7 +6,7 @@ CONFIGFOLDER='/root/.ingenuity'
 COIN_DAEMON='ingenuityd'
 COIN_CLI='ingenuity-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/IngenuityCoin/Ingenuity/files/2919098/Ingenuity-.Ubuntu_Daemon.tar.gz'
+COIN_TGZ='https://github.com/IngenuityCoin/Ingenuity/files/2952112/Ingenuity-.Daemon_Ubuntu_16.04.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Ingenuity'
 COIN_PORT=3118
@@ -45,7 +45,7 @@ function download_node() {
   echo -e "${GREEN}Downloading and Installing VPS $COIN_NAME Daemon${NC}"
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
-  tar xzvf Ingenuity-.Ubuntu_Daemon.tar.gz
+  tar xzvf Ingenuity-.Daemon_Ubuntu_16.04.tar.gz
   cd rev >/dev/null 2>&1
   chmod +x $COIN_DAEMON $COIN_CLI
   cp $COIN_DAEMON $COIN_CLI $COIN_PATH
